@@ -7,11 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1UnuWtrsB_5aflz6F2mcLeIbjtemPF54t
 """
 
-pip install streamlit pandas numpy
-
-!mkdir hdb_resale_app
-!cd hdb_resale_app
-
 import streamlit as st
 
 # Function 1: HDB Resale Flat Affordability Calculator
