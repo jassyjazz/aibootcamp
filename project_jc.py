@@ -112,7 +112,7 @@ def methodology_page():
 # Main Navigation
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Home", "Affordability Calculator", "Filtered Resale Flats", "HDB Resale Process Navigator", "About Us", "Methodology"])
+    page = st.sidebar.radio("Go to", ["Home", "Affordability Calculator", "HDB Resale Process Navigator", "About Us", "Methodology"])
     
     if page == "Home":
         st.title("Welcome to the HDB Resale Assistant")
@@ -120,6 +120,10 @@ def main():
     
     elif page == "Affordability Calculator":
         affordability_calculator()
+        
+        # Automatically navigate to the Filtered Resale Flats page if calculation is done
+        if 'calculated' in st.session_state and st.session_state.calculated:
+            filtered_resale_flats()
     
     elif page == "Filtered Resale Flats":
         filtered_resale_flats()
