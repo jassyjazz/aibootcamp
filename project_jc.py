@@ -21,12 +21,10 @@ def affordability_calculator():
     if st.button('Calculate'):
         max_price = total_savings + max_loan
         st.write(f'Based on your input, you can afford a resale flat priced up to S${max_price:,.0f}.')
-
+        
         # Store the max price in session state to use in the next page
         st.session_state.max_price = max_price
-        
-        # Navigate to the next page with resale flats
-        st.experimental_rerun()
+        st.session_state.calculated = True  # Set the flag to indicate calculation is done
 
 # Function 2: Display Filtered Resale Flats Based on User's Budget
 def filtered_resale_flats():
@@ -136,4 +134,8 @@ def main():
         methodology_page()
 
 if __name__ == "__main__":
+    # Initialize session state variables
+    if 'calculated' not in st.session_state:
+        st.session_state.calculated = False
+
     main()
